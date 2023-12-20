@@ -1,6 +1,6 @@
 year="2023"
 day="01"
-infile="input"
+infile="input.puzzle"
 
 while getopts "y:d:i:" op
 do

@@ -37,6 +37,6 @@ func partTwo() int {
 }
 
 func main() {
-	fmt.Printf("%d\n", partOne())
-	fmt.Printf("%d\n", partTwo())
+	fmt.Println(partOne())
+	fmt.Println(partTwo())
 }

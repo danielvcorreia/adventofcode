@@ -1,15 +1,10 @@
 package main
 
 import (
-	"fmt"
 	"bufio"
+	"fmt"
 	"os"
 )
-
-func main() {
-	fmt.Println(partOne())
-	fmt.Println(partTwo())
-}
 
 func partOne() int {
 	s := bufio.NewScanner(os.Stdin)
@@ -40,4 +35,9 @@ func partTwo() int {
 	}
 
 	return 0
+}
+
+func main() {
+	fmt.Printf("%d\n", partOne())
+	fmt.Printf("%d\n", partTwo())
 }

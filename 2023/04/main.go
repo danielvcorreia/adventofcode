@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"bufio"
+	"fmt"
 	"os"
 )
 
@@ -33,7 +33,6 @@ func partTwo() int {
 		line := s.Text()
 		fmt.Println(line)
 
-		
 	}
 	if err := s.Err(); err != nil {
 		fmt.Fprintln(os.Stderr, "reading standard input:", err)

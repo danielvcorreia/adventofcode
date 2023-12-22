@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-type grid struct {i, j int}
+type grid struct{ i, j int }
 
 func parse() (map[grid]byte, int) {
 	s := bufio.NewScanner(os.Stdin)
@@ -19,7 +19,7 @@ func parse() (map[grid]byte, int) {
 		for j := 0; j < len(line); j++ {
 			m[grid{i, j}] = line[j]
 		}
-		
+
 		size = len(line)
 	}
 	if err := s.Err(); err != nil {
@@ -34,8 +34,8 @@ func isDigit(b byte) bool {
 }
 
 func valid(puzzle map[grid]byte, s grid, e grid) bool {
-	for i := s.i-1; i <= e.i+1; i++ {
-		for j := s.j-1; j <= e.j+1; j++ {
+	for i := s.i - 1; i <= e.i+1; i++ {
+		for j := s.j - 1; j <= e.j+1; j++ {
 			currentByte, exists := puzzle[grid{i, j}]
 
 			if exists && !isDigit(currentByte) && currentByte != '.' {
@@ -47,21 +47,21 @@ func valid(puzzle map[grid]byte, s grid, e grid) bool {
 }
 
 func getPart(puzzle map[grid]byte, c grid) (int, int) {
-	index := grid{c.i, c.j-1}
+	index := grid{c.i, c.j - 1}
 	part := 0
 	var sDigitIndex grid
 	var eDigitIndex grid
 
 	for isDigit(puzzle[index]) {
-		index = grid{index.i, index.j-1}
+		index = grid{index.i, index.j - 1}
 	}
-	sDigitIndex = grid{index.i, index.j+1}
+	sDigitIndex = grid{index.i, index.j + 1}
 
-	index = grid{c.i, c.j+1}
+	index = grid{c.i, c.j + 1}
 	for isDigit(puzzle[index]) {
-		index = grid{index.i, index.j+1}
+		index = grid{index.i, index.j + 1}
 	}
-	eDigitIndex = grid{index.i, index.j-1}
+	eDigitIndex = grid{index.i, index.j - 1}
 
 	for j := sDigitIndex.j; j <= eDigitIndex.j; j++ {
 		part = part*10 + int(puzzle[grid{c.i, j}]-'0')
@@ -73,8 +73,8 @@ func getPart(puzzle map[grid]byte, c grid) (int, int) {
 func gearRatio(puzzle map[grid]byte, c grid) int {
 	parts := []int{}
 
-	for i := c.i-1; i <= c.i+1; i++ {
-		for j := c.j-1; j <= c.j+1; j++ {
+	for i := c.i - 1; i <= c.i+1; i++ {
+		for j := c.j - 1; j <= c.j+1; j++ {
 			currentByte, exists := puzzle[grid{i, j}]
 
 			if exists && isDigit(currentByte) {

@@ -91,7 +91,7 @@ func partTwo(cards map[int]Card) int {
 	keys := make([]int, 0)
 	sum := 0
 
-	for k, _ := range cards {
+	for k := range cards {
 		keys = append(keys, k)
 	}
 	sort.Ints(keys)
